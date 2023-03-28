@@ -17,67 +17,51 @@ To get started, clone this repository to your local machine:
 
 `git clone https://github.com/tweetwee1810/Social-Network-API`
 
-`npm i`
+Install the required dependencies using `npm i`
 
-`npm start`
+Start the API by running `npm start`
 
-This will start the API on port 3001. You can test the API by sending HTTP requests to http://localhost:3001.
+The API will start on port 3001. You can test the API by sending HTTP requests to http://localhost:3001.
 
 ## Usage 
-User Endpoints
-GET /users
-Returns a list of all users in the system.
 
-GET /users/:userId
-Returns information about a specific user.
+The API has the following endpoints:
 
-POST /users
-Creates a new user in the system.
 
-PUT /users/:userId
-Updates information about a specific user.
+/api/users
 
-DELETE /users/:userId
-Deletes a specific user from the system.
+* GET: retrieves all users
+* GET /:userId: retrieves a single user by ID
+* POST: creates a new user
+* PUT /:userId: updates a user by ID
+* DELETE /:userId: deletes a user by ID
 
-Connection Endpoints
-GET /connections
-Returns a list of all connections in the system.
 
-GET /connections/:connectionId
-Returns information about a specific connection.
+/api/users/:userId/friends/:friendId
 
-POST /connections
-Creates a new connection between two users.
+* POST: adds a friend to the user's friend list
+* DELETE: removes a friend from the user's friend list
 
-PUT /connections/:connectionId
-Updates information about a specific connection.
 
-DELETE /connections/:connectionId
-Deletes a specific connection from the system.
+/api/thoughts
 
-Post Endpoints
-GET /posts
-Returns a list of all posts in the system.
+* GET: retrieves all thoughts
+* GET/:thoughtId: retrieves a single thought by id
+* POST: creates a new thought
+* PUT/:thoughtId: updates a thought by id
+* DELETE/:thoughtId: deletes a thought by ID
 
-GET /posts/:postId
-Returns information about a specific post.
 
-POST /posts
-Creates a new post in the system.
+/api/thoughts/:thoughtId/reactions
 
-PUT /posts/:postId
-Updates information about a specific post.
-
-DELETE /posts/:postId
-Deletes a specific post from the system.
-
+* POST: adds a reaction to a thought by ID
+* DELETE: removes a reaction from a thought by ID
 
 # Technology 
 
-Express
-MongoDB
-Mongoose
+
+* MongoDB
+* Mongoose
 
 ## License 
 N/A
