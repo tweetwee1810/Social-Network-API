@@ -37,25 +37,6 @@ The API has the following endpoints:
 * DELETE /:userId: deletes a user by ID
 
 
-/api/users/:userId/friends/:friendId
-
-* POST: adds a friend to the user's friend list
-* DELETE: removes a friend from the user's friend list
-
-
-/api/thoughts
-
-* GET: retrieves all thoughts
-* GET/:thoughtId: retrieves a single thought by id
-* POST: creates a new thought
-* PUT/:thoughtId: updates a thought by id
-* DELETE/:thoughtId: deletes a thought by ID
-
-
-/api/thoughts/:thoughtId/reactions
-
-* POST: adds a reaction to a thought by ID
-* DELETE: removes a reaction from a thought by ID
 
 # Technology 
 
