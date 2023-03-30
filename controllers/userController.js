@@ -1,6 +1,8 @@
+//Import the User and Thought models
 const { User, Thought } = require('../models');
-
+//Define an object that contains functions to handle user-related operations
 const userController = {
+    //Function to retrieve all users from the database
     async getAllUser(req, res) {
         try {
             const users = await User.find();
@@ -8,7 +10,7 @@ const userController = {
         } catch (error) { res.status(500).json(error) }
     },
 
-    //find one user and populate the thoughts and friends
+    //Function to retrieve a single user by id from the database, populating its thoughts and friends properties
     async getOneUser(req, res) {
         try {
             const user = await User.findById(req.params.id)
@@ -21,7 +23,7 @@ const userController = {
                 : res.status(404).json({ message: 'Failed to find the user' })
         } catch (error) { res.status(500).json(error) }
     },
-
+   //Function to create a new user in the database
     async postUser(req, res) {
         try {
             const newUser = await User.create(req.body);
@@ -31,7 +33,7 @@ const userController = {
         } catch (error) { res.status(500).json(error) }
     },
 
-    // update the user based on the id 
+    //  Function to update a user's information in the database based on its id
     async updateUser(req, res) {
         try {
             const updatedUser = await User.findOneAndUpdate(
@@ -47,7 +49,7 @@ const userController = {
         } catch (error) { res.status(500).json(error) }
     },
 
-    //delete the user and the associated thoughts
+    //Function to delete a user from the database based on its id, along with its associated thoughts
     async deleteUser(req, res) {
         try {
             const user = await User.findOneAndDelete({ _id: req.params.id });
@@ -60,24 +62,24 @@ const userController = {
         } catch (error) { res.status(500).json(error) }
     },
 
-    // find the user and add a friend based on id
+    // Add a friend to a user's friends list
     async addFriend(req, res) {
         try {
             const userId = req.params.userId;
             const friendId = req.params.friendId;
-            //check friend shouldn't be user themselves
+            //Check that the friend is not the user themselves
             if (userId === friendId) {
                 res.status(400).json({ message: 'Can\t add yourself as your friend' });
                 return;
             };
-            //$addToSet only push the data not already exists.
+            //Add the friend to the user's friends list
             const user = await User.findOneAndUpdate(
                 { _id: userId },
                 { $addToSet: { friends: friendId } },
                 { new: true })
             user
                 ? res.status(200).json(user)
-                : res.status(404).json({ message: 'Failed to add friends' })
+                : res.status(404).json({ message: 'Failed to add friend' })
         } catch (error) { res.status(500).json(error) }
     },
 
