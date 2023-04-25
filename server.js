@@ -1,8 +1,6 @@
 const express = require('express');
 const db = require('./config/connection');
 const mongoose = require('mongoose');
-const chalk = require('chalk');
-
 
 // have not done with the routes
 const routes = require('./routes');

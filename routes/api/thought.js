@@ -4,7 +4,8 @@ const { getAllThought, getOneThought, postThought, deleteThought, updateThought 
 const { addReaction, deleteReaction } = require('../../controllers/reactionController');
 
 // Routes for thoughts
-router.get('/', getAllThought);
+// router.get('/', getAllThought);
+router.route('/').get(getAllThought);
 router.post('/', postThought);
 router.get('/:id', getOneThought)
 router.put('/:id', updateThought);
