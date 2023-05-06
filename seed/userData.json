@@ -1,8 +1,14 @@
 [
-    {"username": "tweebui",
-      "email": "tweeb@test.com"},
-    {"username": "thuy",
-    "email": "thuy@test.com"}, 
-    {"username": "test",
-    "email": "test@test.com"}
+    {
+      "username": "tweebui",
+      "email": "tweeb@test.com"
+    },
+    {
+      "username": "thuy",
+    "email": "thuy@test.com"
+  }, 
+    {
+      "username": "test",
+    "email": "test@test.com"
+  }
 ]

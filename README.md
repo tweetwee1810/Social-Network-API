@@ -36,6 +36,7 @@ The API has the following endpoints:
 * PUT /:userId: updates a user by ID
 * DELETE /:userId: deletes a user by ID
 
+/api/thoughts
 
 
 # Technology 

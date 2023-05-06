@@ -13,10 +13,6 @@ const UserSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Please enter a valid email address'],
   },
-  id: {
-    type: Integer,
-    Autoincrement: true
-  },
   thoughts: [
     {
       type: Schema.Types.ObjectId,
